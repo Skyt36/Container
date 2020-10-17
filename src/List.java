@@ -66,13 +66,13 @@ public class List<Type> {
 		}
 	}
 	
-	void insert(Node<Type> pos, Type info){
-		if(pos == null || pos.equals(end)){
+	void insert(Iterator pos, Type info){
+		if(pos == null || pos.currentIterator.equals(end)){
 			return;
 		}
-		Node<Type> newNode = new Node<Type>(info, pos, pos.getNext());
-		pos.getNext().setPrev(newNode);
-		pos.setNext(newNode);
+		Node<Type> newNode = new Node<Type>(info, pos.currentIterator, pos.currentIterator.getNext());
+		pos.currentIterator.getNext().setPrev(newNode);
+		pos.currentIterator.setNext(newNode);
 	}
 	
 	void erase(Iterator pos){
